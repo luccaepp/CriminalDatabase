@@ -13,7 +13,6 @@ import lucca.android.com.criminaldatabase.R
 
 class FragmentListar : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
