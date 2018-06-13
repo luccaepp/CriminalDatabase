@@ -1,11 +1,20 @@
 package lucca.android.com.criminaldatabase.fragments
 
+import android.content.Context.WINDOW_SERVICE
+import android.graphics.Point
 import android.hardware.Camera
+import android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT
+import android.hardware.display.DisplayManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import android.view.SurfaceHolder.Callback
 import lucca.android.com.criminaldatabase.R
+import lucca.android.com.criminaldatabase.R.id.surfaceView
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+
+
 
 
 
@@ -42,16 +51,15 @@ class FragmentEscanear : Fragment(), Callback {
 
     override fun surfaceCreated(p0: SurfaceHolder?) {
 
-        camera = Camera.open()
-        var param : Camera.Parameters = camera!!.parameters
+        camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT)
         camera!!.setDisplayOrientation(90)
-        param.setPreviewFrameRate(30)
-        param.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)
-        camera!!.setParameters(param)
+        camera!!.parameters.set("orientation", "portrait");
+        camera!!.parameters.focusMode
         camera!!.setPreviewDisplay(surfaceHolder)
         camera!!.startPreview()
 
 
     }
+
 
 }
